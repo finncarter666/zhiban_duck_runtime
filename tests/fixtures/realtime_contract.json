@@ -1,0 +1,17 @@
+{
+  "description": "Explicit I/O timing behavior revision, 2026-10-29. Original runtime_contract.json remains immutable. These hashes record the reviewed change boundary, not performance proof or equivalence to the old I/O collector.",
+  "modules": {
+    "zhiban_runtime/hardware/backend.py": {
+      "current_path": "zhiban_runtime/hardware/device_runtime.py",
+      "before_sha256": "8a5e330a920a12c07b0aa9a865c3dbfacf22b2b451d991295587c21c8465ecb1",
+      "after_sha256": "d6b37d7fcea8b7e9e2cb4ec02c7c93a6baaced51dd2602950da8b5640f643b0d",
+      "reason": "Incremental valid-reply completion and fd readiness waits; bounded stage timing. Motion math, watchdogs and absolute 10 ms scheduler preserved. Covered by tests/test_realtime.py and tests/test_hardware.py."
+    },
+    "zhiban_runtime/application.py": {
+      "current_path": "zhiban_runtime/application.py",
+      "before_sha256": "8ab60ba2dec2fc7213023c33f3613d0940f631404e07d01c6668516b42cc99a7",
+      "after_sha256": "1606f2d2afb39ff3100f41ea4a86e0890cc3f8fa9e163bd256a2aa1235a542c2",
+      "reason": "Add hardware_timing snapshot after controller.status releases its lock; existing API fields and command routes preserved. Covered by tests/test_application.py."
+    }
+  }
+}

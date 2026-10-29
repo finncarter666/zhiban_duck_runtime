@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="#f4f5f2" name="theme-color"/>
+  <title>
+   舵机设置 · Zhiban Duck Studio
+  </title>
+  <link href="duck-mark.svg" rel="icon" type="image/svg+xml"/>
+  <link href="style.css?v=20261029-2" rel="stylesheet"/>
+  <link href="servo.css?v=20261029-2" rel="stylesheet"/>
+ </head>
+ <body data-page="servo">
+  <a class="skip-link" href="#content">
+   跳至主要内容
+  </a>
+  <aside aria-label="工作台导航" class="sidebar">
+   <a class="brand" href="/">
+    <img alt="" height="36" src="duck-mark.svg" width="36"/>
+    <span>
+     Zhiban
+     <b>
+      Studio
+     </b>
+    </span>
+   </a>
+   <div class="workspace-label">
+    ROBOT WORKSPACE
+    <span>
+     01
+    </span>
+   </div>
+   <nav>
+    <a class="nav-item" href="/">
+     <svg aria-hidden="true" class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24">
+      <rect height="7" rx="1.5" width="7" x="3" y="3">
+      </rect>
+      <rect height="7" rx="1.5" width="7" x="14" y="3">
+      </rect>
+      <rect height="7" rx="1.5" width="7" x="3" y="14">
+      </rect>
+      <rect height="7" rx="1.5" width="7" x="14" y="14">
+      </rect>
+     </svg>
+     <span>
+      实时总览
+     </span>
+    </a>
+    <a class="nav-item" href="/#motion">
+     <svg aria-hidden="true" class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24">
+      <path d="M8 7h8a5 5 0 0 1 5 5v5a2 2 0 0 1-3.4 1.4L15 16H9l-2.6 2.4A2 2 0 0 1 3 17v-5a5 5 0 0 1 5-5Z">
+      </path>
+      <path d="M7 10v5m-2.5-2.5h5M16 11h.01M18 14h.01">
+      </path>
+     </svg>
+     <span>
+      舵机控制
+     </span>
+    </a>
+    <a aria-current="page" class="nav-item active" href="/servo.html">
+     <svg aria-hidden="true" class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24">
+      <rect height="14" rx="4" width="14" x="5" y="5">
+      </rect>
+      <circle cx="12" cy="12" r="3">
+      </circle>
+      <path d="M9 2v3m6-3v3M9 19v3m6-3v3M2 9h3m-3 6h3m14-6h3m-3 6h3">
+      </path>
+     </svg>
+     <span>
+      舵机设置
+     </span>
+     <span class="nav-marker">
+     </span>
+    </a>
+    <a class="nav-item" href="/calibrate.html">
+     <svg aria-hidden="true" class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24">
+      <circle cx="12" cy="12" r="7">
+      </circle>
+      <circle cx="12" cy="12" r="2">
+      </circle>
+      <path d="M12 2v4m0 12v4M2 12h4m12 0h4">
+      </path>
+     </svg>
+     <span>
+      鸭子标零
+     </span>
+    </a>
+   </nav>
+   <div class="sidebar-bottom">
+    <div class="device-chip">
+     <span class="device-icon">
+      Z
+     </span>
+     <div>
+      <b>
+       Zhiban Duck
+      </b>
+      <small>
+       Linux Runtime
+      </small>
+     </div>
+    </div>
+    <p>
+     本机控制 · 请在可信网络使用
+    </p>
+   </div>
+  </aside>
+  <main class="workspace" id="content">
+   <header class="topbar">
+    <div class="breadcrumb">
+     设备工作台
+     <span>
+      /
+     </span>
+     <b>
+      舵机设置
+     </b>
+    </div>
+    <div class="topbar-actions">
+     <span class="connection" data-state="waiting" id="connection">
+      <i>
+      </i>
+      <span id="connection-label">
+       等待连接
+      </span>
+     </span>
+     <button class="stop" id="exit">
+      <span aria-hidden="true" class="stop-square">
+      </span>
+      退出维护 · 卸力
+     </button>
+    </div>
+   </header>
+   <div class="page-heading">
+    <div>
+     <p class="eyebrow">
+      ZHIBAN DUCK / CONTROL STUDIO
+     </p>
+     <h1>
+      舵机设置
+     </h1>
+     <p class="subtitle">
+      发现总线设备，完成中位复位、参数读取与舵机维护。
+     </p>
+    </div>
+    <span class="version-tag">
+     Linux
+     <span>
+      ·
+     </span>
+     NATIVE I/O
+    </span>
+   </div>
+   <div class="warn">
+    <b>
+     接线提醒
+    </b>
+    <span>
+     修改 ID 时只连接需要修改的那一个舵机。同一总线上的重复 ID 无法区分；扫描或维护会退出运动控制。
+    </span>
+   </div>
+   <div class="message-bar" role="status">
+    <span aria-hidden="true" class="message-dot">
+    </span>
+    <p id="message">
+     正在连接本机运行时…
+    </p>
+    <span class="live-caption">
+     LIVE STATUS
+    </span>
+   </div>
+   <div class="servo-layout">
+    <section class="panel scan-panel">
+     <div class="section-heading">
+      <div>
+       <p class="eyebrow">
+        01 / DISCOVER
+       </p>
+       <h2>
+        发现舵机
+       </h2>
+      </div>
+      <span class="subtle-tag">
+       SCS BUS
+      </span>
+     </div>
+     <p class="hint">
+      扫描总线，选择需要设置的舵机。
+     </p>
+     <div class="servo-scan-actions">
+      <button class="primary" id="scan">
+       扫描全部 ID
+      </button>
+      <button hidden="" id="scan-stop">
+       停止扫描
+      </button>
+     </div>
+     <progress aria-label="舵机扫描进度" hidden="" id="scan-progress" max="254" value="0">
+     </progress>
+     <p id="scan-status" role="status">
+      扫描范围 0–253；254 与 255 为保留 ID。
+     </p>
+     <div aria-label="已发现的舵机" class="servo-scan-results" id="scan-results">
+     </div>
+     <div class="scan-empty">
+      <div aria-hidden="true" class="scan-symbol">
+       ⌕
+      </div>
+      <b>
+       等待发现设备
+      </b>
+      <p>
+       开始扫描后，在线舵机将显示在这里。
+      </p>
+     </div>
+     <p class="hint">
+      停止扫描会保留已发现的结果。选择 ID 后自动读取参数。
+     </p>
+    </section>
+    <section class="panel">
+     <div class="section-heading">
+      <div>
+       <p class="eyebrow">
+        02 / CONFIGURE
+       </p>
+       <h2>
+        中位与参数
+       </h2>
+      </div>
+      <span class="badge" id="selected-servo">
+       未选择舵机
+      </span>
+     </div>
+     <div class="servo-setting">
+      <div>
+       <h3>
+        中位复位
+       </h3>
+       <p>
+        发送中位复位命令，舵机保持卸力。
+       </p>
+      </div>
+      <button disabled="" id="reset-mid">
+       复位中位
+      </button>
+     </div>
+     <div class="servo-setting">
+      <div>
+       <h3>
+        控制增益
+       </h3>
+       <p>
+        读取当前值后，按需写入 KP / KD。
+       </p>
+      </div>
+      <div class="servo-row">
+       <label for="kp">
+        KP
+        <input disabled="" id="kp" max="255" min="0" type="number" value="5"/>
+       </label>
+       <label for="kd">
+        KD
+        <input disabled="" id="kd" max="255" min="0" type="number" value="10"/>
+       </label>
+       <button disabled="" id="set-gains">
+        写入增益
+       </button>
+      </div>
+     </div>
+     <div class="servo-setting">
+      <div>
+       <h3>
+        修改舵机 ID
+       </h3>
+       <p>
+        写入前检查占用，写入后验证新旧 ID。
+       </p>
+      </div>
+      <div class="servo-row">
+       <label for="new-id">
+        新 ID
+        <input disabled="" id="new-id" max="253" min="0" type="number" value="10"/>
+       </label>
+       <button disabled="" id="set-id">
+        修改 ID
+       </button>
+      </div>
+     </div>
+     <div class="servo-read-block">
+      <div>
+       <span class="eyebrow">
+        PARAMETER READBACK
+       </span>
+       <p class="servo-readout" id="read-out">
+        等待选择舵机
+       </p>
+      </div>
+      <button disabled="" id="read">
+       读取参数
+      </button>
+     </div>
+    </section>
+   </div>
+   <section class="panel servo-protection">
+    <div class="section-heading">
+     <div>
+      <p class="eyebrow">
+       BROADCAST SETTINGS
+      </p>
+      <h2>
+       全舵机保护设置
+      </h2>
+     </div>
+     <span class="subtle-tag">
+      广播 · 无逐个确认
+     </span>
+    </div>
+    <div class="protection-grid">
+     <div>
+      <h3>
+       电压 / 过流保护开关
+      </h3>
+      <div class="protection-controls">
+       <button id="enable-protection">
+        开启保护
+       </button>
+       <button class="danger-outline" id="disable-protection">
+        关闭保护
+       </button>
+      </div>
+      <p class="servo-readout" id="protection-out" role="status">
+       尚未下发
+      </p>
+     </div>
+     <div>
+      <h3>
+       <label for="protection-current">
+        保护电流阈值
+       </label>
+      </h3>
+      <div class="protection-controls">
+       <div class="input-unit">
+        <input id="protection-current" inputmode="decimal" min="0" step="any" type="number" value="1.5"/>
+        <span>
+         A
+        </span>
+       </div>
+       <button id="set-protection-current">
+        设置阈值
+       </button>
+      </div>
+      <p class="servo-readout" id="protection-current-out" role="status">
+       尚未下发
+      </p>
+     </div>
+    </div>
+    <p class="hint">
+     保护开关与电流阈值分别写入；两者均向全部舵机广播，无需选择 ID。过热保护保持开启，已存电压限值不变。电流分辨率 6.5 mA，广播发送成功不代表已逐个验证。此处为参数配置，不是电流或温度测量。
+    </p>
+   </section>
+   <footer class="page-footer">
+    <span>
+     <b>
+      ZHIBAN
+     </b>
+     / DUCK STUDIO
+    </span>
+    <span>
+     本机运行时 · 控制前请确认设备周围安全
+    </span>
+   </footer>
+  </main>
+  <script src="studio.js?v=20261029-2">
+  </script>
+  <script src="servo.js?v=20261029-2">
+  </script>
+ </body>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="#f4f5f2" name="theme-color"/>
+  <title>
+   实时总览 · Zhiban Duck Studio
+  </title>
+  <link href="duck-mark.svg" rel="icon" type="image/svg+xml"/>
+  <link href="style.css?v=20261029-2" rel="stylesheet"/>
+ </head>
+ <body data-page="overview">
+  <a class="skip-link" href="#content">
+   跳至主要内容
+  </a>
+  <aside aria-label="工作台导航" class="sidebar">
+   <a class="brand" href="/">
+    <img alt="" height="36" src="duck-mark.svg" width="36"/>
+    <span>
+     Zhiban
+     <b>
+      Studio
+     </b>
+    </span>
+   </a>
+   <div class="workspace-label">
+    ROBOT WORKSPACE
+    <span>
+     01
+    </span>
+   </div>
+   <nav>
+    <a aria-current="page" class="nav-item active" href="/">
+     <svg aria-hidden="true" class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24">
+      <rect height="7" rx="1.5" width="7" x="3" y="3">
+      </rect>
+      <rect height="7" rx="1.5" width="7" x="14" y="3">
+      </rect>
+      <rect height="7" rx="1.5" width="7" x="3" y="14">
+      </rect>
+      <rect height="7" rx="1.5" width="7" x="14" y="14">
+      </rect>
+     </svg>
+     <span>
+      实时总览
+     </span>
+     <span class="nav-marker">
+     </span>
+    </a>
+    <a class="nav-item" href="/#motion">
+     <svg aria-hidden="true" class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24">
+      <path d="M8 7h8a5 5 0 0 1 5 5v5a2 2 0 0 1-3.4 1.4L15 16H9l-2.6 2.4A2 2 0 0 1 3 17v-5a5 5 0 0 1 5-5Z">
+      </path>
+      <path d="M7 10v5m-2.5-2.5h5M16 11h.01M18 14h.01">
+      </path>
+     </svg>
+     <span>
+      舵机控制
+     </span>
+    </a>
+    <a class="nav-item" href="/servo.html">
+     <svg aria-hidden="true" class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24">
+      <rect height="14" rx="4" width="14" x="5" y="5">
+      </rect>
+      <circle cx="12" cy="12" r="3">
+      </circle>
+      <path d="M9 2v3m6-3v3M9 19v3m6-3v3M2 9h3m-3 6h3m14-6h3m-3 6h3">
+      </path>
+     </svg>
+     <span>
+      舵机设置
+     </span>
+    </a>
+    <a class="nav-item" href="/calibrate.html">
+     <svg aria-hidden="true" class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24">
+      <circle cx="12" cy="12" r="7">
+      </circle>
+      <circle cx="12" cy="12" r="2">
+      </circle>
+      <path d="M12 2v4m0 12v4M2 12h4m12 0h4">
+      </path>
+     </svg>
+     <span>
+      鸭子标零
+     </span>
+    </a>
+   </nav>
+   <div class="sidebar-bottom">
+    <div class="device-chip">
+     <span class="device-icon">
+      Z
+     </span>
+     <div>
+      <b>
+       Zhiban Duck
+      </b>
+      <small>
+       Linux Runtime
+      </small>
+     </div>
+    </div>
+    <p>
+     本机控制 · 请在可信网络使用
+    </p>
+   </div>
+  </aside>
+  <main class="workspace" id="content">
+   <header class="topbar">
+    <div class="breadcrumb">
+     设备工作台
+     <span>
+      /
+     </span>
+     <b>
+      实时总览
+     </b>
+    </div>
+    <div class="topbar-actions">
+     <span class="connection" data-state="waiting" id="connection">
+      <i>
+      </i>
+      <span id="connection-label">
+       等待连接
+      </span>
+     </span>
+     <button class="stop" id="stop">
+      <span aria-hidden="true" class="stop-square">
+      </span>
+      立即卸力
+      <kbd>
+       空格
+      </kbd>
+     </button>
+    </div>
+   </header>
+   <div class="page-heading">
+    <div>
+     <p class="eyebrow">
+      ZHIBAN DUCK / CONTROL STUDIO
+     </p>
+     <h1>
+      实时总览
+     </h1>
+     <p class="subtitle">
+      连接、校准与控制，让机器人的每一个状态清晰可见。
+     </p>
+    </div>
+    <span class="version-tag">
+     Linux
+     <span>
+      ·
+     </span>
+     NATIVE I/O
+    </span>
+   </div>
+   <section aria-labelledby="hero-title" class="hero">
+    <div class="hero-copy">
+     <div class="hero-tag">
+      <span>
+      </span>
+      PRECISION IN EVERY STEP
+     </div>
+     <h2 id="hero-title">
+      让每一步，
+      <br/>
+      都在掌控之中。
+     </h2>
+     <p>
+      从关节校准到运动控制，
+      <br/>
+      在一个工作台里，连接你的鸭子。
+     </p>
+     <a class="hero-link" href="#motion">
+      打开控制台
+      <span aria-hidden="true">
+       ↗
+      </span>
+     </a>
+     <div class="hero-bottom">
+      <span id="hero-mode">
+       等待设备状态
+      </span>
+      <span>
+       15 关节 · ONNX 推理
+      </span>
+     </div>
+    </div>
+    <div class="hero-art">
+     <img alt="白色机身、黄色脚掌的双足机器人示意图" src="duck-illustration.svg"/>
+     <span class="illustration-note">
+      结构示意 · 非实时姿态
+     </span>
+    </div>
+   </section>
+   <section aria-label="运行概览" class="metrics">
+    <article>
+     <div class="metric-label">
+      反馈频率
+      <span>
+       HARDWARE
+      </span>
+     </div>
+     <strong id="rx">
+      —
+     </strong>
+     <small>
+      硬件反馈 · 目标 100 Hz
+     </small>
+    </article>
+    <article>
+     <div class="metric-label">
+      策略推理
+      <span>
+       POLICY
+      </span>
+     </div>
+     <strong id="rl">
+      —
+     </strong>
+     <small>
+      控制周期 · 目标 50 Hz
+     </small>
+    </article>
+    <article>
+     <div class="metric-label">
+      在线舵机
+      <span>
+       JOINTS
+      </span>
+     </div>
+     <strong id="servos">
+      —
+     </strong>
+     <small id="servo-summary">
+      等待关节反馈
+     </small>
+    </article>
+    <article>
+     <div class="metric-label">
+      惯性传感器
+      <span>
+       IMU
+      </span>
+     </div>
+     <strong id="imu">
+      —
+     </strong>
+     <small id="feedback-age">
+      等待有效样本
+     </small>
+    </article>
+   </section>
+   <div class="message-bar" role="status">
+    <span aria-hidden="true" class="message-dot">
+    </span>
+    <p id="message">
+     正在连接本机运行时…
+    </p>
+    <span class="live-caption">
+     LIVE STATUS
+    </span>
+   </div>
+   <section class="panel" id="motion">
+    <div class="section-heading">
+     <div>
+      <p class="eyebrow">
+       01 / MOTION CONTROL
+      </p>
+      <h2>
+       舵机控制
+      </h2>
+     </div>
+     <span class="badge" id="mode">
+      等待状态
+     </span>
+    </div>
+    <div class="mode-actions">
+     <button class="mode-card" data-mode="shadow">
+      <span class="mode-number">
+       01
+      </span>
+      <b>
+       仅推理
+      </b>
+      <small>
+       预览策略，不使能扭矩
+      </small>
+     </button>
+     <button class="mode-card" data-mode="hold" disabled="">
+      <span class="mode-number">
+       02
+      </span>
+      <b>
+       默认姿态
+      </b>
+      <small>
+       发送默认关节目标
+      </small>
+     </button>
+     <button class="mode-card" data-mode="policy" disabled="">
+      <span class="mode-number">
+       03
+      </span>
+      <b>
+       开始行走
+      </b>
+      <small>
+       行走与自动起身
+      </small>
+     </button>
+    </div>
+    <div class="action-toolbar">
+     <div class="buttons">
+      <button disabled="" id="pick">
+       拾取动作
+       <span class="button-meta">
+        4 s
+       </span>
+      </button>
+      <button disabled="" id="roulade">
+       翻滚动作
+       <span class="button-meta">
+        1.9 s
+       </span>
+      </button>
+     </div>
+     <label class="mode-toggle">
+      <input id="roller-mode" role="switch" type="checkbox"/>
+      滚轮模式
+      <span id="roller-state">
+       关闭
+      </span>
+     </label>
+    </div>
+    <p class="hint safety-hint">
+     切换页面或后台运行只会将运动命令归零，不会自动卸力。需要释放舵机时，请使用右上角「立即卸力」。单个舵机缺失不阻止其余舵机运行，上机前仍需确认全部 ID 在线。
+    </p>
+   </section>
+   <div class="two-column control-columns">
+    <section class="panel">
+     <div class="section-heading">
+      <div>
+       <p class="eyebrow">
+        DIRECTION
+       </p>
+       <h2>
+        运动遥控
+       </h2>
+      </div>
+      <button class="text-button" id="zero">
+       运动归零 ↺
+      </button>
+     </div>
+     <p class="warn" hidden="" id="roller-warning" role="note">
+      滚轮模式下长时间保持外八姿态可能使侧摆电机发热，请定期停机休息。
+     </p>
+     <div class="touch-control">
+      <button id="touch-control" type="button" aria-pressed="false">启用一次摇杆触控</button>
+      <p id="touch-hint">默认可滑动页面。点击启用后拖动摇杆；松手、取消或离开页面即归零并锁定。</p>
+     </div>
+     <div class="joysticks">
+      <div class="joystick-side">
+       <div aria-labelledby="left-label" class="joy" id="joy-left" role="group">
+        <div class="knob">
+        </div>
+        <span aria-hidden="true" class="axis-top">
+         ↑
+        </span>
+        <span aria-hidden="true" class="axis-bottom">
+         ↓
+        </span>
+        <span aria-hidden="true" class="axis-left">
+         ←
+        </span>
+        <span aria-hidden="true" class="axis-right">
+         →
+        </span>
+       </div>
+       <label id="left-label">
+        前进 / 横移
+       </label>
+       <p class="joy-value">
+        vx
+        <span id="vxValue">
+         0.00
+        </span>
+        <i>
+         ·
+        </i>
+        vy
+        <span id="vyValue">
+         0.00
+        </span>
+       </p>
+      </div>
+      <div class="joystick-side">
+       <div aria-labelledby="right-label" class="joy" id="joy-right" role="group">
+        <div class="knob">
+        </div>
+        <span aria-hidden="true" class="axis-left">
+         ↶
+        </span>
+        <span aria-hidden="true" class="axis-right">
+         ↷
+        </span>
+       </div>
+       <label id="right-label">
+        转向
+       </label>
+       <p class="joy-value">
+        ωz
+        <span id="wzValue">
+         0.00
+        </span>
+       </p>
+      </div>
+     </div>
+     <div class="keyboard-hint">
+      <span>
+       <kbd>
+        W
+       </kbd>
+       <kbd>
+        S
+       </kbd>
+       前后
+      </span>
+      <span>
+       <kbd>
+        A
+       </kbd>
+       <kbd>
+        D
+       </kbd>
+       横移
+      </span>
+      <span>
+       <kbd>
+        Q
+       </kbd>
+       <kbd>
+        E
+       </kbd>
+       转向
+      </span>
+     </div>
+     <p class="hint">
+      拖动摇杆，松开回零；中心死区 15%，运动指令平滑过渡。
+      <span id="motion-limits">
+       范围：vx -0.2～+0.4，vy ±0.3，ωz ±1.0。
+      </span>
+     </p>
+    </section>
+    <section class="panel">
+     <div class="section-heading">
+      <div>
+       <p class="eyebrow">
+        HEAD &amp; MOUTH
+       </p>
+       <h2>
+        头部与嘴部
+       </h2>
+      </div>
+      <span class="subtle-tag">
+       5 通道
+      </span>
+     </div>
+     <div class="head-controls" id="head-controls">
+     </div>
+     <p class="hint">
+      头部通道 1–4：±1 rad。嘴部 ID 34：0–30°，随 50 ms 命令心跳发送，不进入策略观测。
+     </p>
+    </section>
+   </div>
+   <section class="panel recovery-panel">
+    <div class="section-heading">
+     <div>
+      <p class="eyebrow">
+       POLICY STATE
+      </p>
+      <h2>
+       行走与恢复
+      </h2>
+     </div>
+     <span class="badge" id="recovery-phase">
+      —
+     </span>
+    </div>
+    <div class="recovery-values">
+     <div>
+      <small>
+       当前模型
+      </small>
+      <b id="active-model">
+       —
+      </b>
+     </div>
+     <div>
+      <small>
+       相对重力方向倾角
+      </small>
+      <b id="tilt-angle">
+       —
+      </b>
+     </div>
+     <div>
+      <small>
+       阶段计时
+      </small>
+      <b id="recovery-timer">
+       —
+      </b>
+     </div>
+    </div>
+    <details>
+     <summary>
+      查看恢复与动作约定
+     </summary>
+     <p class="hint">
+      倾角超过 55° 持续 0.15 s 后选择起身模型，保持 action = 0 共 1 s，再执行起身；倾角低于 15° 持续 1 s 后恢复行走。起身时运动和头部命令归零，仅推理模式不使能扭矩。拾取采用 4 s 相位周期，嘴部先打开到 30°，φ ≥ 0.4 时闭合。翻滚持续 1.9 s，运动和头部命令归零，腿部与头部平滑系数临时设为 0.15，期间不按倾角切换起身，结束后恢复原系数。
+     </p>
+    </details>
+   </section>
+   <details class="panel settings-panel">
+    <summary>
+     <span>
+      <span class="eyebrow">
+       ADVANCED
+      </span>
+      <b>
+       动作与 IMU 参数
+      </b>
+     </span>
+     <span class="summary-hint">
+      展开调整
+      <span aria-hidden="true">
+       ＋
+      </span>
+     </span>
+    </summary>
+    <div class="settings-body">
+     <h3>
+      动作设置
+      <span id="action-profile">
+       行走 / 其他模型
+      </span>
+     </h3>
+     <div class="controls">
+      <label>
+       动作缩放
+       <output id="action-scale-value">
+        1.00
+       </output>
+       <input id="action-scale" max="2" min="0" step="0.05" type="range" value="1"/>
+      </label>
+      <label>
+       腿部 α
+       <output id="leg-alpha-value">
+        0.45
+       </output>
+       <input id="leg-alpha" max="0.95" min="0" step="0.05" type="range" value="0.45"/>
+      </label>
+      <label>
+       头部 α
+       <output id="head-alpha-value">
+        0.20
+       </output>
+       <input id="head-alpha" max="0.95" min="0" step="0.05" type="range" value="0.2"/>
+      </label>
+     </div>
+     <p class="hint">
+      滚轮与其他模型分别保存设置。滚轮默认：缩放 0.7、腿 α 0.4、头 α 0.5；其他默认：1、0.45、0.2。缩放作用于相对初始姿态的动作偏移，松开滑块提交，重启恢复默认值。
+     </p>
+     <h3>
+      IMU 滤波
+     </h3>
+     <div class="controls">
+      <label>
+       角速度 α
+       <output id="gyro-alpha-value">
+        0.50
+       </output>
+       <input id="gyro-alpha" max="0.95" min="0" step="0.05" type="range" value="0.5"/>
+      </label>
+      <label>
+       重力校正 τ（s）
+       <output id="gravity-tau-value">
+        0.30
+       </output>
+       <input id="gravity-tau" max="2" min="0.01" step="0.01" type="range" value="0.3"/>
+      </label>
+     </div>
+     <p class="hint">
+      角速度 α 越大越平滑，重力 τ 越大则加速度校正越慢。提交后即时生效，重启恢复默认值。
+     </p>
+    </div>
+   </details>
+   <section class="panel" id="telemetry">
+    <div class="section-heading">
+     <div>
+      <p class="eyebrow">
+       02 / LIVE TELEMETRY
+      </p>
+      <h2>
+       实时状态
+      </h2>
+     </div>
+     <span class="subtle-tag">
+      250 ms 页面刷新
+     </span>
+    </div>
+    <div class="telemetry-grid">
+     <div>
+      <h3>
+       惯性数据
+      </h3>
+      <div class="imu-lines">
+       <div>
+        <small>
+         加速度
+         <span>
+          m/s²
+         </span>
+        </small>
+        <b id="acc-values">
+         —
+        </b>
+       </div>
+       <div>
+        <small>
+         角速度
+         <span>
+          °/s
+         </span>
+        </small>
+        <b id="gyro-values">
+         —
+        </b>
+       </div>
+       <div>
+        <small>
+         重力方向
+         <span>
+          单位向量
+         </span>
+        </small>
+        <b id="gravity-values">
+         —
+        </b>
+       </div>
+      </div>
+      <div class="link-health">
+       <span class="eyebrow">
+        COMMAND LINK
+       </span>
+       <p id="command-health">
+        等待命令链路数据
+       </p>
+      </div>
+      <p class="hint">
+       右侧为总线关节顺序。离线舵机会单独标记；连接中断后，历史读数不应视为当前状态。
+      </p>
+     </div>
+     <div class="table">
+      <table>
+       <caption class="sr-only">
+        舵机实测角度与目标角度
+       </caption>
+       <thead>
+        <tr>
+         <th scope="col">
+          关节 ID
+         </th>
+         <th scope="col">
+          实测 / °
+         </th>
+         <th scope="col">
+          目标 / °
+         </th>
+         <th scope="col">
+          状态
+         </th>
+        </tr>
+       </thead>
+       <tbody id="joints">
+        <tr>
+         <td class="empty-cell" colspan="4">
+          等待硬件反馈…
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </section>
+   <footer class="page-footer">
+    <span>
+     <b>
+      ZHIBAN
+     </b>
+     / DUCK STUDIO
+    </span>
+    <span>
+     本机运行时 · 控制前请确认设备周围安全
+    </span>
+   </footer>
+  </main>
+  <script src="studio.js?v=20261029-2">
+  </script>
+  <script src="app.js?v=20261029-2">
+  </script>
+ </body>
+</html>

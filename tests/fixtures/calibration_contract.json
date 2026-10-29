@@ -1,0 +1,14 @@
+{
+  "modules": {
+    "zhiban_runtime/hardware/device_runtime.py": {
+      "before_sha256": "d6b37d7fcea8b7e9e2cb4ec02c7c93a6baaced51dd2602950da8b5640f643b0d",
+      "after_sha256": "4117c7f6c0b0e06f3e02380d7cbc579b3cebe1546c3c3be5ef21a4583910a74d",
+      "reason": "Confirm individual-servo center target and torque registers before marking calibration held; unload that joint on failure and report an unconfirmed hold."
+    },
+    "zhiban_runtime/control/motion_control.py": {
+      "before_sha256": "84d3d4e09d9d883ae8408949856fe6ac97bb50ce7f6034fd9dec4417436a46c5",
+      "after_sha256": "6aa775b57ea8e456fec2724830f640149c305bb73f4a6f5a805c62f90cffcbd6",
+      "reason": "Confirm individual-servo center target and torque registers before marking calibration held; unload that joint on failure and report an unconfirmed hold."
+    }
+  }
+}

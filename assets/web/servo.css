@@ -1,0 +1,316 @@
+/* 维护页面沿用 Studio 设计变量，扫描、写入和退出流程仍由 servo.js 管理。 */
+.servo-layout {
+  display:  grid;
+  grid-template-columns:  .85fr 1.4fr;
+  gap:  20px;
+}
+
+.servo-layout>.panel {
+  height:  calc(100% - 20px);
+}
+
+.servo-scan-actions {
+  display:  flex;
+  gap:  8px;
+  flex-wrap:  wrap;
+  margin:  22px 0 16px;
+}
+
+.servo-scan-actions button {
+  font-size:  14px;
+}
+
+.scan-panel>progress {
+  margin:  18px 0;
+}
+
+.scan-panel #scan-status {
+  font-size:  14px;
+  line-height:  1.8;
+  color:  var(--muted);
+  margin:  10px 0;
+}
+
+.servo-scan-results {
+  display:  flex;
+  flex-wrap:  wrap;
+  gap:  8px;
+  margin:  18px 0;
+}
+
+.servo-scan-results button {
+  font:  14px ui-monospace,monospace;
+  padding:  8px 11px;
+  min-height:  34px;
+}
+
+.servo-scan-results button[aria-pressed=true] {
+  background:  var(--green-soft);
+  color:  var(--green);
+  border-color:  #adc4a3;
+}
+
+.scan-empty {
+  display:  flex;
+  align-items:  center;
+  flex-direction:  column;
+  justify-content:  center;
+  min-height:  190px;
+  border:  1px dashed #dce4d4;
+  border-radius:  12px;
+  background:  #fafbf7;
+  text-align:  center;
+  padding:  18px;
+  color:  var(--muted);
+}
+
+.scan-empty b {
+  font-size:  14px;
+  font-weight:  500;
+}
+
+.scan-empty p {
+  font-size:  14px;
+  margin-top:  6px;
+}
+
+.scan-symbol {
+  font-size:  40px;
+  font-weight:  300;
+  color:  var(--muted);
+  line-height:  1;
+  margin-bottom:  18px;
+}
+
+.servo-scan-results:not(:empty)+.scan-empty {
+  display:  none;
+}
+
+.servo-setting {
+  padding:  20px 0;
+  border-bottom:  1px solid var(--line);
+  display:  flex;
+  align-items:  center;
+  justify-content:  space-between;
+  gap:  20px;
+}
+
+.servo-setting:first-of-type {
+  padding-top:  0;
+}
+
+.servo-setting h3 {
+  font-size:  14px;
+}
+
+.servo-setting p {
+  font-size:  14px;
+  color:  var(--muted);
+  margin-top:  6px;
+}
+
+.servo-setting button {
+  font-size:  14px;
+  white-space:  nowrap;
+}
+
+.servo-row {
+  display:  flex;
+  align-items:  flex-end;
+  gap:  8px;
+}
+
+.servo-row label {
+  font-size:  14px;
+  color:  var(--muted);
+}
+
+.servo-row input {
+  display:  block;
+  margin-top:  5px;
+  width:  67px;
+  font-size:  14px;
+}
+
+.servo-read-block {
+  display:  flex;
+  align-items:  center;
+  justify-content:  space-between;
+  gap:  15px;
+  margin-top:  23px;
+  padding:  16px;
+  background:  #f5f8ef;
+  border-radius:  10px;
+}
+
+.servo-read-block .eyebrow {
+  font-size:  14px;
+}
+
+.servo-read-block button {
+  font-size:  14px;
+  white-space:  nowrap;
+}
+
+.servo-readout {
+  font-size:  14px;
+  overflow-wrap:  anywhere;
+  color:  var(--muted);
+}
+
+.servo-read-block p {
+  font:  14px/1.8 ui-monospace,monospace;
+  color:  var(--muted);
+}
+
+.protection-grid {
+  display:  grid;
+  grid-template-columns:  1fr 1fr;
+  gap:  35px;
+}
+
+.protection-grid>div+div {
+  border-left:  1px solid var(--line);
+  padding-left:  35px;
+}
+
+.protection-grid h3 {
+  font-size:  14px;
+  font-weight:  500;
+  margin-bottom:  15px;
+}
+
+.protection-controls {
+  display:  flex;
+  align-items:  center;
+  flex-wrap:  wrap;
+  gap:  10px;
+}
+
+.protection-controls button {
+  font-size:  14px;
+}
+
+.protection-grid .servo-readout {
+  margin-top:  12px;
+  font-size:  14px;
+}
+
+.danger-outline {
+  color:  #9c382b;
+  border-color:  #ead8d1;
+}
+
+.input-unit {
+  display:  flex;
+  align-items:  center;
+  gap:  10px;
+  font-size:  14px;
+  color:  var(--muted);
+}
+
+.input-unit input {
+  font-size:  14px;
+  width:  83px;
+}
+
+.servo-protection>.hint {
+  border-top:  1px solid var(--line);
+  padding-top:  17px;
+  margin-top:  23px;
+}
+
+@media(max-width:1150px) {
+  .servo-layout {
+    grid-template-columns:  .9fr 1.3fr;
+    gap:  15px;
+  }
+  .servo-setting {
+    align-items:  flex-start;
+    flex-wrap:  wrap;
+    gap:  12px;
+  }
+  .servo-setting>div:first-child {
+    flex:  1;
+    min-width:  140px;
+  }
+  .protection-grid {
+    gap:  20px;
+  }
+  .protection-grid>div+div {
+    padding-left:  20px;
+  }
+}
+
+@media(max-width:680px) {
+  .servo-layout {
+    grid-template-columns:  1fr;
+    gap:  0;
+  }
+  .servo-layout>.panel {
+    height:  auto;
+  }
+  .scan-empty {
+    min-height:  125px;
+  }
+  .protection-grid {
+    grid-template-columns:  1fr;
+    gap:  22px;
+  }
+  .protection-grid>div+div {
+    border-left:  0;
+    border-top:  1px solid var(--line);
+    padding-left:  0;
+    padding-top:  22px;
+  }
+  .servo-setting {
+    padding:  18px 0;
+  }
+  .servo-read-block {
+    padding:  13px;
+  }
+  .servo-row {
+    flex-wrap:  wrap;
+  }
+}
+
+/* 状态输出可换行，但轮询与扫描不会改变所在卡片的尺寸。 */
+#scan-status {
+  height:  5.4em;
+  overflow:  auto;
+  overflow-wrap:  anywhere;
+}
+
+.servo-readout {
+  min-width:  0;
+  height:  4.8em;
+  line-height:  1.6;
+  overflow:  auto;
+}
+
+.servo-read-block p {
+  height:  3.6em;
+  overflow:  auto;
+}
+
+.servo-setting p {
+  font-size:  14px;
+}
+
+.servo-row input {
+  width:  80px;
+  font-size:  16px;
+}
+
+.servo-layout {
+  grid-template-columns:  minmax(0,.85fr) minmax(0,1.4fr);
+}
+
+@media(max-width:680px) {
+  .servo-layout {
+    grid-template-columns:  minmax(0,1fr);
+  }
+  .servo-read-block {
+    flex-wrap:  wrap;
+  }
+}

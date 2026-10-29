@@ -1,0 +1,14 @@
+{
+  "description": "Pre-reorganization AST fingerprints after explicit symbol, resource-path and branding substitutions; top-level imports and docstrings excluded.",
+  "modules": {
+    "zhiban_runtime/control/controller.py": "84d3d4e09d9d883ae8408949856fe6ac97bb50ce7f6034fd9dec4417436a46c5",
+    "zhiban_runtime/control/recovery.py": "0f093a8262bf5ff9c398480a87532db26d05e3894838ef48bdfebc206d6afac2",
+    "zhiban_runtime/control/filters.py": "da758da3817cc1f2b6dba824f6aaf294b30a0b773a37b5ddf80992fc42bd8e1f",
+    "zhiban_runtime/inference/policy.py": "9798923353ee82c543574275808f8cda276c3cc7b2bf3d4d557ae608cad53641",
+    "zhiban_runtime/inference/observation.py": "3ee9381837acf2e1656ebb3473dcaa364dfb95e8b03cb44d16bd511220074e52",
+    "zhiban_runtime/hardware/backend.py": "8a5e330a920a12c07b0aa9a865c3dbfacf22b2b451d991295587c21c8465ecb1",
+    "zhiban_runtime/protocol.py": "b985cdbbbc5dd310d99926c2524edee09f82b300363c714a0509b1c66f3ab340",
+    "zhiban_runtime/application.py": "8ab60ba2dec2fc7213023c33f3613d0940f631404e07d01c6668516b42cc99a7",
+    "zhiban_runtime/cli.py": "ec931f7e66c435ca1aa24cfd24569bae137dca79546d7077779b62192adccefd"
+  }
+}

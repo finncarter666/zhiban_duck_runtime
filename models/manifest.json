@@ -1,0 +1,38 @@
+{
+  "description": "File integrity and numerical-payload hashes for the release assets. Only roller display metadata was renamed.",
+  "models": {
+    "zhiban_getup.onnx": {
+      "sha256": "c414f2bd84b0a79b89f0ba6997135eb45e4ecd9df9271ea989c237864027b2a3",
+      "before_reorganization_sha256": "c414f2bd84b0a79b89f0ba6997135eb45e4ecd9df9271ea989c237864027b2a3",
+      "inference_payload_sha256": "3864b8d289b4e61f7ea1b10d6069dc5556a143cc08a3fa131344b0f80198b04a",
+      "renamed_metadata_keys": []
+    },
+    "zhiban_pick.onnx": {
+      "sha256": "f34e990dda785e9a8c53890bdcd0f7f1d457592691fd3703f3776b48fb2d14b8",
+      "before_reorganization_sha256": "f34e990dda785e9a8c53890bdcd0f7f1d457592691fd3703f3776b48fb2d14b8",
+      "inference_payload_sha256": "1f29a01b21ec755504d5f2ec3fab77ee425a39ec9813fd44f80be4a6cec4ce95",
+      "renamed_metadata_keys": []
+    },
+    "zhiban_roller.onnx": {
+      "sha256": "04c701f7bf69be861e2dda6271228a566144abc520d617bd8684a2b489b7026f",
+      "before_reorganization_sha256": "126d75bf206f26e57e0d173b42fb5ef021820e1a06dde7ae9f8c2269361e06e6",
+      "inference_payload_sha256": "eb77edfe3504f16ef33129ff618bca8289fab5513e5c40798835ed488438d69f",
+      "renamed_metadata_keys": [
+        "run_path",
+        "task_id"
+      ]
+    },
+    "zhiban_roulade.onnx": {
+      "sha256": "8adb1e6bc3f5eef751ce4edbf940f6d5a25fdec3ec4a798e1d9ca135c8248e97",
+      "before_reorganization_sha256": "8adb1e6bc3f5eef751ce4edbf940f6d5a25fdec3ec4a798e1d9ca135c8248e97",
+      "inference_payload_sha256": "c2525588ec2d15979436cd2a39813279ce269e6d9ea1d31e2c1f6e45d86f1aee",
+      "renamed_metadata_keys": []
+    },
+    "zhiban_walk.onnx": {
+      "sha256": "57cdebf36e7fa23116270dec96f013a6a64511f37311d322443f5297bdc3d6db",
+      "before_reorganization_sha256": "57cdebf36e7fa23116270dec96f013a6a64511f37311d322443f5297bdc3d6db",
+      "inference_payload_sha256": "d91b0379807d379ed4349d197d1541be6998b4cea653489a89d1ea1c379b1f4d",
+      "renamed_metadata_keys": []
+    }
+  }
+}
