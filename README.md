@@ -2,6 +2,18 @@
 
 面向 **Linux 平台** 的鸭子机器人本机运行时，通过串口访问 SCS 舵机总线、通过 I2C 读取 QMI8658，并使用 ONNX 策略执行动作推理。Web 工作台提供运动控制、舵机设置、鸭子标零与实时状态查看。
 
+## 交流群
+
+下面是**:Microduck技术爱好交流 1**的二维码（微信群满 200 人后无法扫码加入）。
+
+<div align="center" style="text-align: center;">
+  <img src="media/picture/wechat-group-1.png" alt=":Microduck技术爱好交流 1 微信二维码" width="280" style="width: 280px; max-width: 100%; height: auto;">
+  <br>
+  <sub><b>:Microduck技术爱好交流 1 · 二维码在 2026-11-04 前有效</b>（微信群码 7 天自动失效）<br>
+  过期了请开个 <a href="https://github.com/finncarter666/zhiban_duck_runtime/issues">issue</a> 说一声，我会换上新的</sub>
+</div>
+
+
 ## 功能
 
 - 100 Hz 目标频率的硬件 I/O 循环与 50 Hz 策略控制循环。
@@ -120,6 +132,7 @@ python -m black --check main.py zhiban_runtime tests tools
 - `docs/architecture.md`：模块职责、并发和数值接口。
 - `docs/realtime.md`：100 Hz 时序、诊断字段和性能验收。
 - `docs/validation.md`：离线测试与上机验收规范。
+
 
 ## 许可
 
